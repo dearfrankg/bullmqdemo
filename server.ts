@@ -4,18 +4,14 @@ import { setupBullBoard } from "./bullmq/bull-board";
 
 const serverAdapter = setupBullBoard();
 
-// server.js
 const app = express();
 const port = 3000;
 app.use(express.json()); // Middleware to parse JSON bodies
-
-// Your BullMQ setup goes here
 
 app.get("/", (req, res) => {
   res.send("Express server is running.");
 });
 
-// server.js (continued)
 app.post("/addJob", async (req, res, next: NextFunction) => {
   const { jobData } = req.body;
 
